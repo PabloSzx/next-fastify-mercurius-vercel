@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { request, gql } from "graphql-request";
 import { GetServerSideProps } from "next";
+import { SERVER_URL } from "../src/constants";
 
 interface HomeProps {
   data: {};
@@ -8,7 +9,7 @@ interface HomeProps {
 
 const fetchData = async () => {
   const data = await request<HomeProps["data"]>(
-    "http://localhost:3000/api/graphql",
+    `${SERVER_URL}/api/graphql`,
     gql`
       query {
         hello
