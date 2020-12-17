@@ -1,7 +1,5 @@
 dependencies:
-  '@types/node': 14.14.14
-  '@types/react': 17.0.0
-  '@types/react-dom': 17.0.0
+  '@graphql-typed-document-node/core': 3.1.0_graphql@15.4.0
   fastify: 3.9.2
   graphql: 15.4.0
   graphql-request: 3.4.0_graphql@15.4.0
@@ -11,6 +9,10 @@ dependencies:
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-query: 3.3.0_react-dom@17.0.1+react@17.0.1
+devDependencies:
+  '@types/node': 14.14.14
+  '@types/react': 17.0.0
+  '@types/react-dom': 17.0.0
   typescript: 4.1.3
 lockfileVersion: 5.2
 packages:
@@ -832,24 +834,24 @@ packages:
     resolution:
       integrity: sha512-3c+yGKvVP5Y9TYBEibGNR+kLtijnj7mYrXRg+WpFb2X9xm04g/DXYkfg4hmzJQosc9snFNUPkbYIhu+KAm6jJw==
   /@types/node/14.14.14:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-UHnOPWVWV1z+VV8k6L1HhG7UbGBgIdghqF3l9Ny9ApPghbjICXkUJSd/b9gOgQfjM1r+37cipdw/HJ3F6ICEnQ==
   /@types/prop-types/15.7.3:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
   /@types/react-dom/17.0.0:
     dependencies:
       '@types/react': 17.0.0
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-lUqY7OlkF/RbNtD5nIq7ot8NquXrdFrjSOR6+w9a9RFQevGi1oZO1dcJbXMeONAPKtZ2UrZOEJ5UOCVsxbLk/g==
   /@types/react/17.0.0:
     dependencies:
       '@types/prop-types': 15.7.3
       csstype: 3.0.5
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
   /@webassemblyjs/ast/1.9.0:
@@ -2035,7 +2037,7 @@ packages:
     resolution:
       integrity: sha512-9vOyjw8Dj/T12kIOnXPZ5VnEIo6F3YMaIn0wqJXmn277R58cWpI3AvtdlCBtohX7VAUNYcyk2d0dKcXXkb5I6Q==
   /csstype/3.0.5:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-uVDi8LpBUKQj6sdxNaTetL6FpeCqTjOvAQuQUa/qAqq8oOd4ivkbhgnqayl0dnPal8Tb/yB1tF+gOvCBiicaiQ==
   /cyclist/1.0.1:
@@ -5887,7 +5889,7 @@ packages:
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
   /typescript/4.1.3:
-    dev: false
+    dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
@@ -6211,12 +6213,13 @@ packages:
     resolution:
       integrity: sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
 specifiers:
+  '@graphql-typed-document-node/core': ^3.1.0
   '@types/node': ^14.14.14
   '@types/react': ^17.0.0
   '@types/react-dom': ^17.0.0
   fastify: ^3.9.2
   graphql: ^15.4.0
-  graphql-request: ^3.3.0
+  graphql-request: ^3.4.0
   mercurius: ^6.5.0
   mercurius-codegen: ^1.1.4
   next: ^10.0.3

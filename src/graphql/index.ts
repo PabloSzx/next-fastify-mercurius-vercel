@@ -1,6 +1,7 @@
 import { MercuriusContext } from "mercurius";
 import { FastifyReply } from "fastify";
 import { GraphQLResolveInfo } from "graphql";
+import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -187,6 +188,27 @@ type LoaderResolver<TReturn, TObj, TParams, TContext> =
 export interface Loaders<
   TContext = MercuriusContext & { reply: FastifyReply }
 > {}
+export type helloWorldQueryVariables = Exact<{ [key: string]: never }>;
+
+export type helloWorldQuery = { __typename?: "Query" } & Pick<Query, "hello">;
+
+export const helloWorldDocument: DocumentNode<
+  helloWorldQuery,
+  helloWorldQueryVariables
+> = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "helloWorld" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "Field", name: { kind: "Name", value: "hello" } }],
+      },
+    },
+  ],
+};
 export type DeepPartial<T> = T extends Function
   ? T
   : T extends Array<infer U>

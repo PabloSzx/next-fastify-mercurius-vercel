@@ -22,11 +22,11 @@ app.register(mercurius, {
 });
 
 mercuriusCodegen(app, {
-  targetPath: "./src/graphql.generated.ts",
+  targetPath: "./src/graphql/index.ts",
+  operationsGlob: "src/graphql/*.gql",
 });
 
 const handler: NextApiHandler = async (req, res) => {
-  await app.ready();
   const response = await app.inject({
     method: req.method as any,
     payload: req.body,

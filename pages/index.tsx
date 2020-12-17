@@ -1,22 +1,17 @@
-import { useQuery } from "react-query";
-import { request, gql } from "graphql-request";
 import { GetServerSideProps } from "next";
-import { SERVER_URL } from "../src/constants";
+import { useQuery } from "react-query";
+
+import { helloWorldDocument, helloWorldQuery } from "../src/graphql";
+import { client } from "../src/graphqlClient";
 
 interface HomeProps {
-  data: {};
+  data: {
+    hello: string;
+  };
 }
 
 const fetchData = async () => {
-  const data = await request<HomeProps["data"]>(
-    `${SERVER_URL}/api/graphql`,
-    gql`
-      query {
-        hello
-      }
-    `,
-    {}
-  );
+  const data = await client.request<helloWorldQuery>(helloWorldDocument);
 
   return data;
 };
