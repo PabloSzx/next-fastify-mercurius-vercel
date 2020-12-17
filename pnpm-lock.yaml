@@ -1,5 +1,7 @@
 dependencies:
+  '@graphql-tools/load-files': 6.2.5_graphql@15.4.0
   '@graphql-typed-document-node/core': 3.1.0_graphql@15.4.0
+  altair-fastify-plugin: 3.0.0_fastify@3.9.2
   fastify: 3.9.2
   graphql: 15.4.0
   graphql-request: 3.4.0_graphql@15.4.0
@@ -1066,6 +1068,23 @@ packages:
     dev: false
     resolution:
       integrity: sha1-n7fmuljvrE7pExyymqnuO1QLzx4=
+  /altair-fastify-plugin/3.0.0_fastify@3.9.2:
+    dependencies:
+      altair-static: 3.0.0
+      fastify: 3.9.2
+      fastify-plugin: 2.3.4
+      fastify-static: 3.3.0
+    dev: false
+    peerDependencies:
+      fastify: ^3.1.1
+    resolution:
+      integrity: sha512-58pz4u9DXehKJMvwoG9arYUltBT8EZDPDe95NXhr0P+htnrvtAI1gmhuXlNWX8yjCMImFeOWjEzYRuUiHRmf/g==
+  /altair-static/3.0.0:
+    dev: false
+    engines:
+      node: '>= 6.9.1'
+    resolution:
+      integrity: sha512-37ZaEI79jHFk5cAUFS89AOAYRhe0XIx3KtH06WN9irilHiWqeTfv6EPArVIGHsR7Iq1Y7CvTlmASKccHqAALAw==
   /anser/1.4.9:
     dev: false
     resolution:
@@ -6213,10 +6232,12 @@ packages:
     resolution:
       integrity: sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
 specifiers:
+  '@graphql-tools/load-files': ^6.2.5
   '@graphql-typed-document-node/core': ^3.1.0
   '@types/node': ^14.14.14
   '@types/react': ^17.0.0
   '@types/react-dom': ^17.0.0
+  altair-fastify-plugin: ^3.0.0
   fastify: ^3.9.2
   graphql: ^15.4.0
   graphql-request: ^3.4.0
