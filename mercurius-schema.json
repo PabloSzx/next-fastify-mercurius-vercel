@@ -1,0 +1,1 @@
+["type Query {\r\n  hello: String!\r\n}"]
