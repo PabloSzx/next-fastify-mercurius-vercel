@@ -10,7 +10,8 @@ export const app = Fastify();
 let { schema } = loadSchemaFiles({
   app,
   schemaPath: "src/api/schema/**/*.gql",
-  watchOptions: {
+
+  prebuildOptions: {
     enabled: true,
   },
 });
