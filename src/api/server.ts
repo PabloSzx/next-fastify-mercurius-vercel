@@ -1,5 +1,3 @@
-import "../../mercurius-schema.json";
-
 import AltairFastify from "altair-fastify-plugin";
 import Fastify, { FastifyReply, FastifyRequest } from "fastify";
 import mercurius from "mercurius";
@@ -8,13 +6,16 @@ import { NextApiHandler } from "next";
 
 import { IS_DEVELOPMENT } from "../constants";
 import { resolvers } from "./resolvers";
+import { buildSchema } from "graphql";
 
 export const app = Fastify();
 
 const { schema } = loadSchemaFiles("src/api/schema/**/*.gql", {
   watchOptions: {
     enabled: IS_DEVELOPMENT,
-    onChange() {
+    onChange(schema) {
+      app.graphql.replaceSchema(buildSchema(schema.join("\n")));
+      app.graphql.defineResolvers(resolvers);
       mercuriusCodegen(app, {
         targetPath: "src/graphql/index.ts",
         operationsGlob: "src/graphql/**/*.gql",
