@@ -1,18 +1,25 @@
+import "../../mercurius-schema.json";
+
 import AltairFastify from "altair-fastify-plugin";
 import Fastify, { FastifyReply, FastifyRequest } from "fastify";
 import mercurius from "mercurius";
 import mercuriusCodegen, { loadSchemaFiles } from "mercurius-codegen";
 import { NextApiHandler } from "next";
+
+import { IS_DEVELOPMENT } from "../constants";
 import { resolvers } from "./resolvers";
 
 export const app = Fastify();
 
-let { schema } = loadSchemaFiles({
-  app,
-  schemaPath: "src/api/schema/**/*.gql",
-
-  prebuildOptions: {
-    enabled: true,
+const { schema } = loadSchemaFiles("src/api/schema/**/*.gql", {
+  watchOptions: {
+    enabled: IS_DEVELOPMENT,
+    onChange() {
+      mercuriusCodegen(app, {
+        targetPath: "src/graphql/index.ts",
+        operationsGlob: "src/graphql/**/*.gql",
+      }).catch(console.error);
+    },
   },
 });
 

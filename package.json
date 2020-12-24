@@ -25,7 +25,7 @@
     "graphql": "^15.4.0",
     "graphql-request": "^3.4.0",
     "mercurius": "^6.5.0",
-    "mercurius-codegen": "^1.2.4",
+    "mercurius-codegen": "^1.2.8",
     "next": "^10.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

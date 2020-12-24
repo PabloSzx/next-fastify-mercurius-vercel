@@ -6,7 +6,7 @@ dependencies:
   graphql: 15.4.0
   graphql-request: 3.4.0_graphql@15.4.0
   mercurius: 6.5.0
-  mercurius-codegen: 1.2.4_e42cba883f1e1e05f8e4e9356bd3f27d
+  mercurius-codegen: 1.2.8_e42cba883f1e1e05f8e4e9356bd3f27d
   next: 10.0.3_c39e9db791ea05e3ec4e0e74abb7a6b5
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
@@ -1654,7 +1654,7 @@ packages:
       integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
   /camel-case/4.1.1:
     dependencies:
-      pascal-case: 3.1.2
+      pascal-case: 3.1.1
       tslib: 1.14.1
     dev: false
     resolution:
@@ -1956,7 +1956,7 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 1.14.1
-      upper-case: 2.0.2
+      upper-case: 2.0.1
     dev: false
     resolution:
       integrity: sha512-FXtsSnnrFYpzDmvwDGQW+l8XK3GV1coLyBN0eBz16ZUzGaZcT2ANVCJmLeuw2GQgxKHQIe9e0w2dzkSfaRlUmA==
@@ -4151,7 +4151,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-3YffViIt2QWgTy6Pale5QpopX/IvU3LPL03jOTqp6pGj3VjesdO/U8CuHMKpnQr4shCNCM5fd5XFFvIIl6JBHg==
-  /mercurius-codegen/1.2.4_e42cba883f1e1e05f8e4e9356bd3f27d:
+  /mercurius-codegen/1.2.8_e42cba883f1e1e05f8e4e9356bd3f27d:
     dependencies:
       '@graphql-codegen/core': 1.17.9_graphql@15.4.0
       '@graphql-codegen/plugin-helpers': 1.18.2_graphql@15.4.0
@@ -4173,7 +4173,7 @@ packages:
       graphql: ^15.4.0
       mercurius: ^6.4.0
     resolution:
-      integrity: sha512-gQdzN8833ZtaFTF0JxXYxueCAHp3EtXKb8r6PLgM95co06j/lTN0drBns1BlUbG5HbjRzFXZOWCpolxpPzMH9A==
+      integrity: sha512-sDCoOtjbJLM3Aej6Vbbysel1erJ6w8RkNGZTl/wpzbk4bRHx4y0UdmlPweuQsc8bdZFkKDVEwM4FfcRN3utsng==
   /mercurius/6.5.0:
     dependencies:
       end-of-stream: 1.4.4
@@ -7022,7 +7022,7 @@ specifiers:
   graphql-request: ^3.4.0
   husky: ^4.3.6
   mercurius: ^6.5.0
-  mercurius-codegen: ^1.2.4
+  mercurius-codegen: ^1.2.8
   next: ^10.0.3
   npm-run-all: ^4.1.5
   open-cli: ^6.0.1
