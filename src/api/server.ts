@@ -46,6 +46,9 @@ app.register(mercurius, {
 mercuriusCodegen(app, {
   targetPath: "src/graphql/index.ts",
   operationsGlob: "src/graphql/**/*.gql",
+  watchOptions: {
+    enabled: IS_DEVELOPMENT,
+  },
 }).catch(console.error);
 
 app.register(AltairFastify, {
