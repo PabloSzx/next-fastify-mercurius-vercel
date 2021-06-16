@@ -80,7 +80,7 @@ declare module "next" {
 }
 
 export const apiHandler: NextApiHandler<unknown> = async (nextRequest, nextResponse) => {
-  const { statusCode, body, headers } = await app.inject({
+  const { statusCode, rawPayload, headers } = await app.inject({
     method: nextRequest.method,
     payload: nextRequest.body,
     headers: nextRequest.headers,
@@ -96,5 +96,5 @@ export const apiHandler: NextApiHandler<unknown> = async (nextRequest, nextRespo
 
   nextResponse.status(statusCode);
 
-  nextResponse.end(body);
+  nextResponse.end(rawPayload);
 };

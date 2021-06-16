@@ -1,7 +1,6 @@
-import { MercuriusContext } from "mercurius";
-import { FastifyReply } from "fastify";
-import { GraphQLResolveInfo } from "graphql";
-import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
+import type { GraphQLResolveInfo } from "graphql";
+import type { MercuriusContext } from "mercurius";
+import type { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -11,7 +10,9 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<DeepPartial<TResult>> | DeepPartial<TResult>;
+) =>
+  | Promise<import("mercurius-codegen").DeepPartial<TResult>>
+  | import("mercurius-codegen").DeepPartial<TResult>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -19,6 +20,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  _FieldSet: any;
 };
 
 export type Query = {
@@ -113,13 +115,13 @@ export type ResolversParentTypes = {
 };
 
 export type QueryResolvers<
-  ContextType = any,
+  ContextType = MercuriusContext,
   ParentType extends ResolversParentTypes["Query"] = ResolversParentTypes["Query"]
 > = {
   hello?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
 };
 
-export type Resolvers<ContextType = any> = {
+export type Resolvers<ContextType = MercuriusContext> = {
   Query?: QueryResolvers<ContextType>;
 };
 
@@ -127,31 +129,15 @@ export type Resolvers<ContextType = any> = {
  * @deprecated
  * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
  */
-export type IResolvers<ContextType = any> = Resolvers<ContextType>;
+export type IResolvers<ContextType = MercuriusContext> = Resolvers<ContextType>;
 
-type Loader<TReturn, TObj, TParams, TContext> = (
-  queries: Array<{
-    obj: TObj;
-    params: TParams;
-  }>,
-  context: TContext & {
-    reply: FastifyReply;
-  }
-) => Promise<Array<DeepPartial<TReturn>>>;
-type LoaderResolver<TReturn, TObj, TParams, TContext> =
-  | Loader<TReturn, TObj, TParams, TContext>
-  | {
-      loader: Loader<TReturn, TObj, TParams, TContext>;
-      opts?: {
-        cache?: boolean;
-      };
-    };
-export interface Loaders<TContext = MercuriusContext & { reply: FastifyReply }> {}
+export interface Loaders {}
+
 export type helloWorldQueryVariables = Exact<{ [key: string]: never }>;
 
 export type helloWorldQuery = { __typename?: "Query" } & Pick<Query, "hello">;
 
-export const helloWorldDocument: DocumentNode<helloWorldQuery, helloWorldQueryVariables> = {
+export const helloWorldDocument = {
   kind: "Document",
   definitions: [
     {
@@ -164,19 +150,8 @@ export const helloWorldDocument: DocumentNode<helloWorldQuery, helloWorldQueryVa
       },
     },
   ],
-};
-export type DeepPartial<T> = T extends Function
-  ? T
-  : T extends Array<infer U>
-  ? _DeepPartialArray<U>
-  : T extends object
-  ? _DeepPartialObject<T>
-  : T | undefined;
-
-interface _DeepPartialArray<T> extends Array<DeepPartial<T>> {}
-type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };
-
+} as unknown as DocumentNode<helloWorldQuery, helloWorldQueryVariables>;
 declare module "mercurius" {
-  interface IResolvers extends Resolvers<MercuriusContext> {}
+  interface IResolvers extends Resolvers<import("mercurius").MercuriusContext> {}
   interface MercuriusLoaders extends Loaders {}
 }
